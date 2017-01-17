@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'openERP', page:'/'});
+  res.render('controlpanel', { title: 'openERP', page:'controlpanel'});
 });
 
 module.exports = router;

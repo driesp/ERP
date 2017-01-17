@@ -2,6 +2,17 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/less-css/reset.css')
+    link(rel='stylesheet', href='/less-css/basic.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans')
   body
+    .header
+      a(href="/") #{title}
+      ul.nav
+        li if page == '/' p .active
+          a(href="/") home
+        li if page == 'application' = .active
+          a(href="/") application
+        li  if page == 'controlpanel' = .active
+          a(href="/controlpanel") control panel
     block content
