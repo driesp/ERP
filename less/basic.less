@@ -8,7 +8,6 @@
 @colorPrimary:#173e43;
 .header
 {
-  position: relative;
   background-color: @colorPrimary;
   height: @headerHeight;
   width: auto;
@@ -31,12 +30,13 @@
     margin-right: 50px;
     li
     {
-      min-width: 100px;
-      display: inline-block;
       float: left;
       text-align: center;
       a
       {
+        display: inline-block;
+        min-width: 100px;
+        white-space: nowrap;
         padding-left:12px;
         padding-right:12px;
         font-size: 20px;
@@ -44,6 +44,10 @@
         color: @textColor;
         text-decoration-line: none;
         font-weight: normal;
+        &:hover
+        {
+          background-color: @colorAccent;
+        }
       }
     }
 

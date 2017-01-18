@@ -4,13 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var expressLess = require('express-less')
+var expressLess = require('express-less');
+var mysql = require('mysql');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var controlpanel =  require('./routes/controlpanel');
 
 var app = express();
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'admin',
+  password: 'fCQVi2agjzJNVvok'
+});
+
+connection.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

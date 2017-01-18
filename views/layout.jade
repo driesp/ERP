@@ -1,5 +1,9 @@
 doctype html
 html
+  block link
+    -var selected = 'home'
+  
+  -var menu = { 'home': '/', 'controlpanel': '/controlpanel'};
   head
     title= title
     link(rel='stylesheet', href='/less-css/reset.css')
@@ -9,10 +13,10 @@ html
     .header
       a(href="/") #{title}
       ul.nav
-        li if page == '/' p .active
-          a(href="/") home
-        li if page == 'application' = .active
-          a(href="/") application
-        li  if page == 'controlpanel' = .active
-          a(href="/controlpanel") control panel
+        each val, key in menu
+          li
+            if selected === key
+              a.active(href=val)= key
+            else
+              a(href=val)= key
     block content
