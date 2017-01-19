@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLess = require('express-less');
-var mysql = require('mysql');
+var hyena = require('hyena');
+var connection = require('hyena/lib/mysql');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -13,10 +15,12 @@ var controlpanel =  require('./routes/controlpanel');
 
 var app = express();
 
-var connection = mysql.createConnection({
+
+hyena.connect(connection({
   host: 'localhost',
   user: 'admin',
-  password: 'fCQVi2agjzJNVvok'
+  password: 'fCQVi2agjzJNVvok',
+  database: 'astro'
 });
 
 connection.connect();
